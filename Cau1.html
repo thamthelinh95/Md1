@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findThirdLargest(arr) {
+        let first = Number.NEGATIVE_INFINITY; // giá trị lớn nhất
+        let second = Number.NEGATIVE_INFINITY; // giá trị lớn thứ hai
+        let third = Number.NEGATIVE_INFINITY; // giá trị lớn thứ ba
+
+        for (let i = 0; i < arr.length; i++) {
+            const current = arr[i];
+
+            if (current > first) {
+                // cập nhật giá trị lớn nhất, và dồn giá trị lớn thứ hai và thứ ba xuống
+                third = second;
+                second = first;
+                first = current;
+            } else if (current > second && current < first) {
+                // cập nhật giá trị lớn thứ hai, và dồn giá trị lớn thứ ba xuống
+                third = second;
+                second = current;
+            } else if (current > third && current < second) {
+                // cập nhật giá trị lớn thứ ba
+                third = current;
+            }
+        }
+
+        return third;
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
